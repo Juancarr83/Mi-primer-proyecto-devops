@@ -1,0 +1,35 @@
+# ---------------------------------------------------------
+# FASE 1: Imagen Base (Usamos Node.js versión ligera sobre Alpine Linux)
+# ---------------------------------------------------------
+FROM node:20-alpine AS builder
+
+# Establecemos el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiamos primero solo los archivos de dependencias (Estrategia de caché de capas)
+COPY package.json ./
+
+# Instalamos las dependencias necesarias
+RUN npm install
+
+# ---------------------------------------------------------
+# FASE 2: Imagen Final de Producción (Más segura y ligera)
+# ---------------------------------------------------------
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copiamos desde la fase anterior los módulos ya instalados
+COPY --from=builder /app/node_modules ./node_modules
+# Copiamos el código fuente de nuestra aplicación
+COPY . .
+
+# 🔒 BUENA PRÁCTICA DE SEGURIDAD (No correr como root):
+# Cambiamos al usuario por defecto sin privilegios que trae Alpine ('node')
+USER node
+
+# Exponemos el puerto 3000 hacia el exterior del contenedor
+EXPOSE 3000
+
+# Comando final que se ejecutará cuando el contenedor arranque
+CMD ["npm", "start"]
