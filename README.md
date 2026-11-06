@@ -72,7 +72,9 @@ Este repositorio contiene la arquitectura completa de una aplicación web modern
 ├── app/                # Código fuente de la aplicación Node.js
 │   ├── package.json
 │   └── app.js
-└── README.md           # Documentación principal del proyecto
+├── README.md           # Documentación principal del proyecto
+├── .gitignore
+└── .dockerignore
 ```
 
 ---

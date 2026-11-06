@@ -31,7 +31,8 @@ docker/
 app/
 ├── app.js             # Lógica del servidor web con Node.js y Express
 └── package.json       # Manifiesto del proyecto y definición de dependencias
-> **Nota:** Es conveniente sacar la lógica y el manifiesto fuera de la carpeta docker para estructurar y definir correctamente el trabajo de un desarrolador al de un DevOps.
+.dockerignore
+Nota: Es conveniente sacar la lógica y el manifiesto fuera de la carpeta docker para estructurar y definir correctamente el trabajo de un desarrolador y un DevOps.
 ```
 
 ### 1. `app.js`
