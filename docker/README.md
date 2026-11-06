@@ -2,32 +2,8 @@
 
 Este directorio contiene el código fuente, la lógica de contenedorización y las especificaciones de despliegue para el microservicio de aplicación de nuestro pipeline DevOps End-to-End.
 
-## 🏗️ Visión General de la Arquitectura
 
-La estrategia de contenedorización sigue estándares de nivel de producción centrados en **superficie de ataque mínima**, **reproducibilidad** y **velocidad de compilación optimizada**.
-
-```text
-+-------------------------------------------------------------------+
-|                     Host / Motor de Docker                        |
-|                                                                   |
-|   +-----------------------------------------------------------+   |
-|   |                  Contenedor: mi-app-container             |   |
-|   |                                                           |   |
-|   |   +-------------------+       +-----------------------+   |   |
-|   |   |  Node.js Express  |       | Usuario no-root       |   |   |
-|   |   |    App (app.js)   |       | ('node') Aislamiento  |   |   |
-|   |   +---------+---------+       +-----------------------+   |   |
-|   |             |                                             |   |
-|   |             v Escuchando en 0.0.0.0:3000                  |   |
-|   +-------------+---------------------------------------------+   |
-|                 ^                                                 |
-|                 | Mapeo de Puertos (-p 3000:3000)                 |
-|                 v                                                 |
-|          Puerto Host 3000 (http://localhost:3000)                  |
-+-------------------------------------------------------------------+
-```
-
-### Aspectos Clave de la Arquitectura
+### 🏗️ Aspectos Clave de la Arquitectura
 
 1. **Construcción Multietapa (Multi-Stage Build)**:
    * **Etapa 1 (Builder)**: Descarga e instala las dependencias de producción (`npm install`).
