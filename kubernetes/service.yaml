@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-test-app-service
+spec:
+  type: NodePort # 🌐 Expone el servicio hacia el exterior mediante un puerto en el nodo
+  selector:
+    app: devops-test-app # Redirige el tráfico a los pods que tengan esta etiqueta
+  ports:
+    - protocol: TCP
+      port: 80         # Puerto expuesto dentro de la red del clúster
+      targetPort: 3000 # Puerto interno en el contenedor Node.js
+      nodePort: 30080  # Puerto estático en el nodo del clúster accesible desde el exterior
