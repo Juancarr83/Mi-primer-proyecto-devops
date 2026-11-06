@@ -1,0 +1,29 @@
+# Control de versiones
+.git
+.gitignore
+.github
+
+# Dependencias locales (se instalan dentro del contenedor)
+node_modules
+npm-debug.log
+
+# Archivos de entorno y credenciales
+.env
+.env.*
+*.pem
+*.key
+
+# Archivos de documentación y módulos ajenos a la app
+*.md
+README.md
+docs/
+terraform/
+kubernetes/
+
+# Archivos temporales y de compilación
+dist
+build
+coverage
+*.log
+.DS_Store
+Thumbs.db

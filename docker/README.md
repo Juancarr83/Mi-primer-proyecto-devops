@@ -49,10 +49,13 @@ La estrategia de contenedorización sigue estándares de nivel de producción ce
 
 ```text
 docker/
-├── app.js             # Lógica del servidor web con Node.js y Express
-├── package.json       # Manifiesto del proyecto y definición de dependencias
 ├── Dockerfile         # Instrucciones de construcción multietapa del contenedor
+├── .dockerignore
 └── README.md          # Documentación técnica (este archivo)
+app/
+├── app.js             # Lógica del servidor web con Node.js y Express
+└── package.json       # Manifiesto del proyecto y definición de dependencias
+> **Nota:** Es conveniente sacar la lógica y el manifiesto fuera de la carpeta docker para estructurar y definir correctamente el trabajo de un desarrolador al de un DevOps.
 ```
 
 ### 1. `app.js`
