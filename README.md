@@ -34,8 +34,8 @@ Este repositorio contiene la arquitectura completa de una aplicación web modern
 
 * **Orquestación en Kubernetes**:
   * **Deployment declarativo** con 2 réplicas para garantizar la tolerancia a fallos.
-  * Limite estricto de recursos de CPU y RAM (`requests` / `limits`) para evitar saturación.
-  * **Sondas de Salud**: `livenessProbe` para autorecuperación y `readinessProbe` para balanceo de carga sin caídas de servicio.
+  * Limite estricto de recursos de CPU y RAM (`requests` / `limits`) para evitar saturación!.
+  * **Sondas de Salud**: `livenessProbe` para autorecuperación y `readinessProbe` para balanceo de carga sin caídas de servicio.S
   * **Service (NodePort)** para la exposición y balanceo interno de red.
 
 ---
