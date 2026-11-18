@@ -20,7 +20,7 @@ Este repositorio contiene la arquitectura completa de una aplicación web modern
 
 ---
 
-### Componentes Clave
+### Componentes Clave d
 
 * **Red en AWS (Terraform)**:
   * VPC dedicada con división entre subredes públicas y privadas.
